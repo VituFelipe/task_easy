@@ -2,16 +2,24 @@ import 'package:flutter/material.dart';
 import '../models/task.dart';
 import '../services/database_service.dart';
 
-// gerenciar a lista de tarefas, e o set pra tentar implementar filtrar pro status
-// tenho que corrigir o codigo ainda
-
 class TaskProvider with ChangeNotifier {
   List<Task> _tasks = [];
   String _filterStatus = 'Todos';
+  String _searchQuery = '';
 
   List<Task> get tasks {
-    if (_filterStatus == 'Todos') return _tasks;
-    return _tasks.where((task) => task.status == _filterStatus).toList();
+    var filteredTasks = _tasks;
+    if (_filterStatus != 'Todos') {
+      filteredTasks = filteredTasks.where((task) => task.status == _filterStatus).toList();
+    }
+    if (_searchQuery.isNotEmpty) {
+      filteredTasks = filteredTasks
+          .where((task) =>
+              task.title.toLowerCase().contains(_searchQuery.toLowerCase()) ||
+              task.assignee.toLowerCase().contains(_searchQuery.toLowerCase()))
+          .toList();
+    }
+    return filteredTasks;
   }
 
   String get filterStatus => _filterStatus;
@@ -36,8 +44,18 @@ class TaskProvider with ChangeNotifier {
     await loadTasks();
   }
 
+  Future<void> clearAllTasks() async {
+    await DatabaseService().clearAllTasks();
+    await loadTasks();
+  }
+
   void setFilter(String status) {
     _filterStatus = status;
+    notifyListeners();
+  }
+
+  void setSearchQuery(String query) {
+    _searchQuery = query;
     notifyListeners();
   }
 }

@@ -61,4 +61,9 @@ class DatabaseService {
     final db = await database;
     return await db.delete('tasks', where: 'id = ?', whereArgs: [id]);
   }
+
+  Future<void> clearAllTasks() async {
+    final db = await database;
+    await db.delete('tasks');
+  }
 }
