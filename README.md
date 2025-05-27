@@ -34,39 +34,3 @@ provider: Gerenciamento de estado.
 intl: Formatação de datas.
 path_provider: Acesso ao sistema de arquivos.
 
-
-**Justificativa:**
-- O README explica claramente o propósito, funcionalidades e instruções, atendendo ao requisito de entrega.
-
----
-
-#### **10. Validação e Testes**
-**Testes Realizados:**
-- **Validação de Campos**: Testar se o formulário impede o cadastro sem título ou responsável.
-- **Persistência**: Verificar se as tarefas são salvas e recuperadas corretamente após fechar e reabrir o app.
-- **Listagem e Filtros**: Confirmar que a lista exibe todas as tarefas e que o filtro por status funciona.
-- **Edição/Exclusão**: Testar a edição e exclusão de tarefas.
-
-**Justificativa:** Esses testes garantem que todos os requisitos mínimos e extras foram atendidos.
-
----
-
-#### **11. Considerações Finais**
-- **Código Organizado**: O código segue padrões de modularidade e inclui comentários explicativos.
-- **Requisitos Atendidos**:
-  - Tema definido (gestão de tarefas).
-  - Tela de cadastro com validação.
-  - Tela de listagem com filtragem (extra).
-  - Persistência local com `sqflite`.
-  - Edição e exclusão implementadas (extras).
-- **Possíveis Melhorias**:
-  - Integração com API externa (ex.: sincronização com Google Calendar).
-  - Adição de notificações para tarefas próximas do vencimento.
-  - Interface mais estilizada com animações.
-
----
-
-**Conexão com o Exemplo SQL Fornecido:**
-O exemplo SQL (`INSERT INTO respostas`) inspirou a implementação do método `insertTask` no `DatabaseService`, que usa uma query semelhante para inserir dados no SQLite. A lógica de persistência foi adaptada para o contexto de Flutter, mantendo a essência de inserir dados em uma tabela com retorno do ID.
-
-Se precisar de mais detalhes ou ajustes no projeto, é só pedir!
