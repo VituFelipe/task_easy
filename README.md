@@ -1,36 +1,25 @@
-# task_easy
-
-A new Flutter project.
-
-## Getting Started
-
 # TaskEasy
 
-Aplicativo Flutter para gestão de tarefas em pequenos negócios, permitindo cadastro, listagem, edição, exclusão e filtragem de tarefas.
+Aplicativo Flutter para gestão de tarefas em pequenos negócios, permitindo cadastro, listagem, edição, busca, filtro e exclusão de tarefas.
 
-## Proposta do Negócio
-O TaskEasy é uma solução simples para pequenos negócios organizarem tarefas, atribuindo responsáveis, prazos e status. Ideal para equipes de até 10 pessoas que buscam otimizar a comunicação e o acompanhamento de atividades.
+## Proposta do Projeto
+O TaskEasy é uma solução para pequenos negócios organizarem tarefas, atribuindo responsáveis, prazos e status. Ideal para equipes de até 20 pessoas.
 
 ## Funcionalidades
 - **Cadastro de Tarefas**: Adicione tarefas com título, descrição, responsável, data de vencimento e status.
-- **Listagem de Tarefas**: Visualize todas as tarefas com opção de filtrar por status (Todos, Pendente, Concluída).
-- **Edição e Exclusão**: Edite ou remova tarefas existentes.
-- **Validação de Dados**: Campos obrigatórios (título e responsável) são validados.
-- **Persistência Local**: Dados salvos em banco SQLite local.
+- **Listagem de Tarefas**: Visualize com busca por título/responsável, filtro por status (Todos, Pendente, Concluída) e menu para ações globais.
+- **Edição e Exclusão**: Modifique ou remova tarefas individualmente.
+- **Limpar Tudo**: Exclua todas as tarefas com confirmação via menu.
+- **Validação**: Campos obrigatórios (título, responsável) são validados.
+- **Persistência**: Dados armazenados no banco SQLite local.
+- **Testes**: Teste automatizado para a tela inicial.
 
 ## Requisitos
-- Flutter SDK (versão 3.22.2 ou superior)
-- Dart
-- Dispositivo/emulador Android ou iOS
+- Flutter SDK (versão 3.18.0 ou superior)
+- Dart SDK (versão 3.2.0 ou superior)
+- Dispositivo ou emulador Android/iOS
 
-## Estrutura do Projeto
-lib/models/: Contém o modelo Task.
-lib/screens/: Telas do aplicativo (TaskFormScreen, TaskListScreen).
-lib/services/: Lógica do banco de dados (DatabaseService).
-lib/providers/: Gerenciamento de estado (TaskProvider).
-Dependências
-sqflite: Persistência local.
-provider: Gerenciamento de estado.
-intl: Formatação de datas.
-path_provider: Acesso ao sistema de arquivos.
-
+## Como Executar
+1. Clone o projeto:
+   ```bash
+   git clone https://github.com/VituFelipe/task_easy.git
