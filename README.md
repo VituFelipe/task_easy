@@ -53,14 +53,14 @@ Use flutter test para executar os testes automatizados.
 ## Estrutura do Projeto
 ```
 lib/
-├── models/              # Modelo da Tarefa
-├── screens/             # Telas principais (Formulário e Lista)
-├── services/            # Banco de dados (SQLite)
-├── providers/           # Estado (TaskProvider, ThemeProvider)
-assets/                  # Ícones e splash
-test/                    # Testes automatizados
+├── models/              -> Modelo da Tarefa
+├── screens/             -> Telas principais (Formulário e Lista)
+├── services/            -> Banco de dados (SQLite)
+├── providers/           -> Estado (TaskProvider, ThemeProvider)
+assets/                  -> Ícones e splash
+test/                    -> Testes automatizados
 docs/
-   guia_execucao  -> Guia Detalhado de Execução
+├── guia_execucao/       -> Guia Detalhado de Execução
 ```   
 
 ## Guia Detalhado de Execução 
