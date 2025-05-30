@@ -54,18 +54,43 @@ class _TaskFormScreenState extends State<TaskFormScreen> {
             children: [
               TextFormField(
                 initialValue: _title,
-                decoration: InputDecoration(labelText: 'Título'),
+                decoration: InputDecoration(
+                  labelText: 'Título',
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+                  errorBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.red),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  focusedErrorBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.red),
+                    borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
                 validator: (value) => value!.isEmpty ? 'Campo obrigatório' : null,
                 onSaved: (value) => _title = value!,
               ),
               TextFormField(
                 initialValue: _description,
-                decoration: InputDecoration(labelText: 'Descrição'),
+                decoration: InputDecoration(
+                  labelText: 'Descrição',
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+                ),
                 onSaved: (value) => _description = value!,
               ),
               TextFormField(
                 initialValue: _assignee,
-                decoration: InputDecoration(labelText: 'Responsável'),
+                decoration: InputDecoration(
+                  labelText: 'Responsável',
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+                  errorBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.red),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  focusedErrorBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.red),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),  
                 validator: (value) => value!.isEmpty ? 'Campo obrigatório' : null,
                 onSaved: (value) => _assignee = value!,
               ),
@@ -100,9 +125,18 @@ class _TaskFormScreenState extends State<TaskFormScreen> {
                       provider.updateTask(task);
                     }
                     Navigator.pop(context);
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Por favor, selecione uma data')));                    
                   }
                 },
-                child: Text(widget.task == null ? 'Salvar' : 'Atualizar'),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  foregroundColor: Colors.white,
+                  padding: EdgeInsetsDirectional.symmetric(horizontal: 30, vertical: 10),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                  elevation: 3,
+                ),
+                child: Text(widget.task == null ? 'Salvar' : 'Atualizar', style: TextStyle(fontSize: 14),),
               ),
             ],
           ),

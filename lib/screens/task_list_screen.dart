@@ -61,11 +61,23 @@ class _TaskListScreenState extends State<TaskListScreen> {
             itemBuilder: (BuildContext context) => <PopupMenuEntry<MenuOption>>[
               PopupMenuItem<MenuOption>(
                 value: MenuOption.clearAll,
-                child: Text('Limpar todas as tarefas'),
+                child: Row(
+                  children: [
+                    Icon(Icons.delete_sweep, color: Colors.red),
+                    SizedBox(width: 8),
+                    Text('Limpar todas as tarefas'),
+                  ],
+                ),  
               ),
               PopupMenuItem<MenuOption>(
                 value: MenuOption.exportTasks,
-                child: Text('Exportar tarefas'),
+                child:Row(
+                  children: [
+                    Icon(Icons.download, color: Colors.blue),
+                    SizedBox(width: 8),
+                    Text('Exportar tarefas'),
+                  ],
+                ),
               ),
               PopupMenuItem<MenuOption>(
                 value: MenuOption.toggleTheme,
