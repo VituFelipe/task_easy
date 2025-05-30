@@ -1,3 +1,4 @@
+import 'dart:convert'; // Adicionado  jsonEncode que travou tudo sacaraia
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
@@ -65,5 +66,11 @@ class DatabaseService {
   Future<void> clearAllTasks() async {
     final db = await database;
     await db.delete('tasks');
+  }
+
+  Future<String> exportTasksToJson() async {
+    final tasks = await getTasks();
+    final List<Map<String, dynamic>> taskMaps = tasks.map((task) => task.toMap()).toList();
+    return jsonEncode(taskMaps);
   }
 }

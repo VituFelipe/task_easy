@@ -3,12 +3,12 @@ import '../models/task.dart';
 import '../services/database_service.dart';
 
 class TaskProvider with ChangeNotifier {
-  List<Task> _tasks = [];
+  List<Task>? _tasks;
   String _filterStatus = 'Todos';
   String _searchQuery = '';
 
   List<Task> get tasks {
-    var filteredTasks = _tasks;
+    var filteredTasks = _tasks ?? [];
     if (_filterStatus != 'Todos') {
       filteredTasks = filteredTasks.where((task) => task.status == _filterStatus).toList();
     }
