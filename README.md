@@ -51,15 +51,17 @@ O TaskEasy atende à necessidade de pequenos negócios, como cafeterias, escrit�
 Use flutter test para executar os testes automatizados.
 
 ## Estrutura do Projeto
+```
 lib/
-  models/         -> Modelo de tarefa
-  screens/        -> Telas principais
-  services/       -> Lógica do SQLite
-  providers/      -> Gerência de estado
-test/             -> Testes automatizados
-assets/           -> Ícones e imagens
+├── models/              # Modelo da Tarefa
+├── screens/             # Telas principais (Formulário e Lista)
+├── services/            # Banco de dados (SQLite)
+├── providers/           # Estado (TaskProvider, ThemeProvider)
+assets/                  # Ícones e splash
+test/                    # Testes automatizados
 docs/
    guia_execucao  -> Guia Detalhado de Execução
+```   
 
 ## Guia Detalhado de Execução 
 Leia o passo a passo completo em docs/guia_execucao.md
